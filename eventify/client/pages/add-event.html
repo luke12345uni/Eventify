@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Eventify — Add Event</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+
+<navigation class="navigation">
+  <div class="navigation_inner grid-960">
+    <a href="/" class="navigation_logo">
+      <span class="navigation_logo-diamond"></span> Eventify
+    </a>
+    <div class="navigation_links">
+      <a href="/"       class="navigation_link">Home</a>
+      <a href="/events" class="navigation_link">My Events</a>
+      <a href="/about"  class="navigation_link">About</a>
+    </div>
+    <div class="navigation_actions">
+      <span class="navigation_user hidden" id="navUser"></span>
+      <a href="/auth/logout" class="btn btn--outline">Logout</a>
+    </div>
+  </div>
+</navigation>
+
+<main>
+  <div class="grid-960">
+    <div class="dataForm-wrap">
+      <div style="margin-bottom:24px">
+        <div class="page-header_label">Event Manager</div>
+        <h1 class="dataForm-title" id="dataFormTitle">Add New Event</h1>
+      </div>
+
+      <div class="dataForm-card">
+        <div id="dataFormMsg"></div>
+
+        <form id="eventForm">
+          <div class="dataForm-group">
+            <label class="dataForm-label">Event Title <span>*</span></label>
+            <input type="text" name="Title" class="dataForm-input" placeholder="e.g. Cardiff Castle Music Festival" required maxlength="100" />
+          </div>
+
+          <div class="dataForm-group">
+            <label class="dataForm-label">Description of EVENT <span>*</span></label>
+            <textarea name="Description" class="dataForm-textarea" placeholder="Enter the description of your event here..." required maxlength="1000"></textarea>
+          </div>
+
+          <div class="dataForm-row">
+            <div class="dataForm-group">
+              <label class="dataForm-label">Category of EVENT <span>*</span></label>
+              <select name="Category" class="dataForm-select" required>
+                <option value="">Select category</option>
+                <option>Music</option>
+                <option>Sports</option>
+                <option>Arts</option>
+                <option>Festivals</option>
+                <option>Business</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="dataForm-group">
+              <label class="dataForm-label">Status of EVENT</label>
+              <select name="Status" class="dataForm-select">
+                <option value="upcoming">Upcoming</option>
+                <option value="completed">Completed</option>
+                <option value="cancelled">Cancelled</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="dataForm-row">
+            <div class="dataForm-group">
+              <label class="dataForm-label">Date of EVENT <span>*</span></label>
+              <input type="date" name="Date" class="dataForm-input" required />
+            </div>
+            <div class="dataForm-group">
+              <label class="dataForm-label">Time of EVENT <span>*</span></label>
+              <input type="time" name="Time" class="dataForm-input" required />
+            </div>
+          </div>
+
+          <div class="dataForm-group">
+            <label class="dataForm-label">Location of EVENT <span>*</span></label>
+            <input type="text" name="Location" class="dataForm-input" placeholder="e.g. Millennium Stadium, Cardiff" required />
+          </div>
+
+          <div class="dataForm-group">
+            <label class="dataForm-label">Capacity of EVENT <span>*</span></label>
+            <input type="number" name="Capacity" class="dataForm-input" placeholder="e.g. 500" required min="1" />
+          </div>
+
+          <div class="dataForm-group">
+            <div class="checkbox-row">
+              <input type="checkbox" name="Paid" id="paidCheck" />
+              <label for="paidCheck">Is this a paid event? (tick the box if yes)</label>
+            </div>
+          </div>
+
+          <div style="display:flex;gap:12px;margin-top:8px">
+            <button type="submit" class="btn btn--primary btn--lg" id="submitBtn">Create Event</button>
+            <a href="/events" class="btn btn--outline btn--lg">Cancel</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script src="/js/main.js"></script>
+</body>
+</html>

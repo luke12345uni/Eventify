@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Eventify — Login</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+
+<navigation class="navigation">
+  <div class="navigation_inner grid-960">
+    <a href="/" class="navigation_logo">
+      <span class="navigation_logo-diamond"></span> Eventify
+    </a>
+    <div class="navigation_links">
+      <a href="/"       class="navigation_link">Home</a>
+      <a href="/about"  class="navigation_link">About</a>
+    </div>
+    <div class="navigation_actions">
+      <a href="/login"    class="btn btn--outline">Login</a>
+      <a href="/register" class="btn btn--primary">Get Started</a>
+    </div>
+  </div>
+</navigation>
+
+<main>
+  <div class="auth-wrap">
+    <div class="auth-card">
+      <div class="auth-logo"><span>◆</span> Eventify</div>
+      <h1 class="dataForm-title" style="text-align:center">Welcome back</h1>
+      <p class="dataForm-sub"  style="text-align:center;margin-bottom:24px">Sign back in to your managment account here</p>
+
+      <!-- Error / success messages from redirect -->
+      <div id="dataFormMsg"></div>
+
+      <form action="/auth/login" method="POST">
+        <div class="dataForm-group">
+          <label class="dataForm-label">Email <span>*</span></label>
+          <input type="email" name="email" class="dataForm-input" placeholder="youremail@example.com" required />
+        </div>
+        <div class="dataForm-group">
+          <label class="dataForm-label">Password <span>*</span></label>
+          <input type="password" name="password" class="dataForm-input" placeholder="••••••••" required />
+        </div>
+        <button type="submit" class="btn btn--primary btn--full btn--lg" style="margin-top:8px">Sign In</button>
+      </form>
+
+      <div class="dataForm-divider"></div>
+      <div class="dataForm-footer">
+        Don't have an account yet? <a href="/register">Create one here</a>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script>
+  // Read error/msg from URL query params and display inline
+  const params = new URLSearchParams(location.search);
+  const msgEl  = document.getElementById('dataFormMsg');
+  if (params.get('error')) {
+    msgEl.className   = 'dataForm-error';
+    msgEl.textContent = params.get('error');
+  }
+  if (params.get('msg')) {
+    msgEl.className   = 'dataForm-success';
+    msgEl.textContent = params.get('msg');
+  }
+</script>
+</body>
+</html>

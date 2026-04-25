@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Eventify — About</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+
+<navigation class="navigation">
+  <div class="navigation_inner grid-960">
+    <a href="/" class="navigation_logo">
+      <span class="navigation_logo-diamond"></span> Eventify
+    </a>
+    <div class="navigation_links">
+      <a href="/"       class="navigation_link">Home</a>
+      <a href="/events" class="navigation_link">My Events</a>
+      <a href="/about"  class="navigation_link active">About</a>
+    </div>
+    <div class="navigation_actions">
+      <span class="navigation_user hidden" id="navUser"></span>
+      <a href="/login"       class="btn btn--outline" id="loginBtn">Login</a>
+      <a href="/auth/logout" class="btn btn--outline hidden" id="logoutBtn">Logout</a>
+    </div>
+  </div>
+</navigation>
+
+<main>
+  <div class="grid-960" style="padding:60px 24px 80px">
+
+    <!-- ABOUT HERO TOP SECTION -->
+    <div class="about-top-section">
+      <div>
+        <div class="page-header_label" style="margin-bottom:8px">About Eventify</div>
+        <h1 class="about-title">
+          A platform built for <em style="color:var(--orange);font-style:italic">real</em> event organisers
+        </h1>
+        <p class="about-body">
+          Eventify is designed with the goal of creating,managing and executing events from start
+          to finish within one centralised platform, empowering the organiser with complete control.
+        </p>
+        <p class="about-body">
+          The platform follows the <strong style="color:var(--heading)">MVC (Model-View-Controller)</strong>
+          architectural pattern, separating data, business logic and presentation into clean,
+          maintainable layers. All data can be viewed,edited or deleted with ease.
+        </p>
+        <p class="about-body">
+          Designed with stric adherence with the <strong style="color:var(--heading)">960 Grid System</strong>,
+          the <strong style="color:var(--heading)">Rule of Thirds</strong> layout principle, and
+          <strong style="color:var(--heading)">Nielsen's 10 Usability Heuristics</strong> — providing 
+          the user with a clear, effective experiance.
+        </p>
+        <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:16px">  
+          <span class="category-label category-label--blue">Full database control</span>
+          <span class="category-label category-label--red">960 Grid</span>
+          <span class="category-label">Session Authentication</span>
+          <span class="category-label category-label--orange">MVC Architecture</span>
+        </div>
+      </div>
+
+      <!-- DEVELOPER CARD -->
+      <div class="dev-card">
+        <div class="dev-avatar">LE</div>
+        <div class="dev-name">Luke Evans</div>
+        <div class="dev-role">Apprentice software engineer</div>
+        <p style="font-size:0.82rem;color:var(--small-text);line-height:1.6">
+          Cardiff Metropolitan University<br>
+          DAT6006 — Full Stack Development<br>
+          2025–2026
+        </p>
+      </div>
+    </div>
+
+    <!-- TECH STACK -->
+    <div class="section-title">Technology Stack</div>
+    <div class="section-sub">The technologies that power Eventify from database to browser</div>
+    <div class="techstack-grid">
+      <div class="techstack-item">
+        <div class="techstack-item_icon">🗄️</div>
+        <div>
+          <div class="techstack-item_label">Database</div>
+          <div class="techstack-item_name">MongoDB + Mongoose</div>
+        </div>
+      </div>
+      <div class="techstack-item">
+        <div class="techstack-item_icon">⚙️</div>
+        <div>
+          <div class="techstack-item_label">Backend</div>
+          <div class="techstack-item_name">Express.js / Node.js</div>
+        </div>
+      </div>
+      <div class="techstack-item">
+        <div class="techstack-item_icon">💻</div>
+        <div>
+          <div class="techstack-item_label">Frontend</div>
+          <div class="techstack-item_name">HTML / CSS / Vanilla JS</div>
+        </div>
+      </div>
+      <div class="techstack-item">
+        <div class="techstack-item_icon">🔐</div>
+        <div>
+          <div class="techstack-item_label">Auth</div>
+          <div class="techstack-item_name">bcrypt password hashing + express-session</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- DESIGN PRINCIPLES -->
+    <div style="margin-top:56px;padding-top:40px;border-top:1px solid var(--border)">
+      <div class="section-title">Design Principles Applied</div>
+      <div class="section-sub" style="margin-bottom:24px">For a well structed design, this web platform complies with these three design principles: </div>
+      <div class="grid-3">
+        <div class="card card-accent">
+          <div class="card-accent_bar"></div>
+          <div class="card-pad">
+            <div class="feature-card_title" style="margin-bottom:8px">960 Grid System</div>
+            <div class="feature-card_desc">All layouts constrained to a 960px max-width container with consistent 24px padding for reliable alignment across all pages and adhearance to the 960 grid layout.</div>
+          </div>
+        </div>
+        <div class="card card-accent">
+          <div class="card-accent_bar"></div>
+          <div class="card-pad">
+            <div class="feature-card_title" style="margin-bottom:8px">Nielsen's 10 Heuristics.</div>
+            <div class="feature-card_desc">For maximum usability, visibility of status, error recovery, consistency and minimal design applied throughout the UI</div>
+          </div>
+        </div>
+        <div class="card card-accent">
+          <div class="card-accent_bar"></div>
+          <div class="card-pad">
+            <div class="feature-card_title" style="margin-bottom:8px">Rule of Thirds</div>
+            <div class="feature-card_desc">Hero top section and About sections use a 2:1 column split, prioritising primary content in the first two thirds, therefore placing supporting visuals in the third for a graphically pleasing design.</div>
+          </div>
+        </div>
+      </div>
+    </div>  
+
+  </div>
+</main>
+
+<script src="/js/main.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', async () => {
+    try {
+      const response = await fetch('/api/me');
+      if (response.ok) {
+        document.getElementById('loginBtn').classList.add('hidden');
+        document.getElementById('logoutBtn').classList.remove('hidden');
+      }
+    } catch {}
+  });
+</script>
+</body>
+</html>

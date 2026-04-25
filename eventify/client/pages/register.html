@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Eventify — Register</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+
+<navigation class="navigation">
+  <div class="navigation_inner grid-960">
+    <a href="/" class="navigation_logo">
+      <span class="navigation_logo-diamond"></span> Eventify
+    </a>
+    <div class="navigation_links">
+      <a href="/"      class="navigation_link">Home</a>
+      <a href="/about" class="navigation_link">About</a>
+    </div>
+    <div class="navigation_actions">
+      <a href="/login"    class="btn btn--outline">Login</a>
+      <a href="/register" class="btn btn--primary">Get Started</a>
+    </div>
+  </div>
+</navigation>
+
+<main>
+  <div class="auth-wrap">
+    <div class="auth-card">
+      <div class="auth-logo"><span>◆</span> Eventify</div>
+      <h1 class="dataForm-title" style="text-align:center">Create your account here</h1>
+      <p class="dataForm-sub"  style="text-align:center;margin-bottom:24px">Become the manager of your events today</p>
+
+      <div id="dataFormMsg"></div>
+
+      <form action="/auth/register" method="POST">
+        <div class="dataForm-group">
+          <label class="dataForm-label">Username <span>*</span></label>
+          <input type="text" name="username" class="dataForm-input" placeholder="eventmaster" required minlength="3" />
+        </div>
+        <div class="dataForm-group">
+          <label class="dataForm-label">Email <span>*</span></label>
+          <input type="email" name="email" class="dataForm-input" placeholder="youremail@example.com" required />
+        </div>
+        <div class="dataForm-group">
+          <label class="dataForm-label">Password <span>*</span></label>
+          <input type="password" name="password" class="dataForm-input" placeholder="Min. 6 characters" required minlength="6" />
+        </div>
+        <button type="submit" class="btn btn--primary btn--full btn--lg" style="margin-top:8px">Register Your Account</button>
+      </form>
+
+      <div class="dataForm-divider"></div>
+      <div class="dataForm-footer">
+        Already have an account? <a href="/login">Sign in</a>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script>
+  const params = new URLSearchParams(location.search);
+  const msgEl  = document.getElementById('dataFormMsg');
+  if (params.get('error')) {
+    msgEl.className   = 'dataForm-error';
+    msgEl.textContent = params.get('error');
+  }
+</script>
+</body>
+</html>

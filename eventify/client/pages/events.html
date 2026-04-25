@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Eventify — My Events</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+
+<navigation class="navigation">
+  <div class="navigation_inner grid-960">
+    <a href="/" class="navigation_logo">
+      <span class="navigation_logo-diamond"></span> Eventify
+    </a>
+    <div class="navigation_links">
+      <a href="/"       class="navigation_link">Home</a>
+      <a href="/events" class="navigation_link active">My Events</a>
+      <a href="/about"  class="navigation_link">About</a>
+    </div>
+    <div class="navigation_actions">
+      <span class="navigation_user hidden" id="navUser"></span>
+      <a href="/auth/logout" class="btn btn--outline">Logout</a>
+    </div>
+  </div>
+</navigation>
+
+<main>
+  <div class="grid-960" style="padding-bottom:80px">
+
+    <!-- PAGE HEADER -->
+    <div class="page-header">
+      <div class="page-header_label">Event Manager Dashboard</div>
+      <div class="page-header_title">All Events</div>
+      <div class="page-header_actions">
+        <a href="/add-event" class="btn btn--primary">+ Create Event</a>
+      </div>
+    </div>
+
+    <!-- STAT CARD DISPLAYS -->
+    <div class="grid-4" style="margin-bottom:32px">
+      <div class="status-card">
+        <div class="status-card_label">Total Events</div>
+        <div class="status-card_value" id="statisticTotal">—</div>
+      </div>
+      <div class="status-card">
+        <div class="status-card_label">Upcoming</div>
+        <div class="status-card_value status-card_value--blue" id="statisticUpcoming">—</div>
+      </div>
+      <div class="status-card">
+        <div class="status-card_label">Cancelled</div>
+        <div class="status-card_value status-card_value--red" id="statisticCancelled">—</div>
+      </div>
+      <div class="status-card">
+        <div class="status-card_label">Status</div>
+        <div class="status-card_value" style="font-size:1.2rem;padding-top:6px;color:var(--success)">Active ✓</div>
+      </div>
+    </div>
+
+<!-- SEARCH and FILTER BAR -->
+    <div class="filter-bar">
+      <div class="search-wrap">
+        <i>⌕</i>
+        <input type="text" id="searchInput" class="search-input" placeholder="Search events..." />
+      </div>
+      <select class="filter-select" id="catFilter">
+        <option value="all">All Categories</option>
+        <option>Music</option>
+        <option>Arts</option>
+        <option>Business</option>
+        <option>Sports</option>
+        <option>Festival</option>
+        <option>Other</option>
+      </select>
+      <select class="filter-select" id="statusFilter">
+        <option value="all">All Status</option>
+        <option value="upcoming">Upcoming</option>
+        <option value="completed">Completed</option>
+        <option value="cancelled">Cancelled</option>
+      </select>
+      <select class="filter-select" id="sortFilter">
+        <option value="date">Date (Earliest First)</option>
+        <option value="newest">Recently Added</option>
+      </select>
+      <input type="date" id="dateFilter" class="filter-select" style="width:150px" />
+    </div>
+
+    <!-- RESULTS COUNT -->
+    <div class="results-count" id="resultsCount"></div>
+
+    <!-- EVENTS GRID -->
+    <div id="eventsList">
+      <div class="loading"><div class="spinner"></div>Loading events...</div>
+    </div>
+
+  </div>
+</main>
+
+<script src="/js/main.js"></script>
+</body>
+</html>

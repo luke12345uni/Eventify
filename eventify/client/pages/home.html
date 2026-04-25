@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Eventify — Home</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+
+<navigation class="navigation">
+  <div class="navigation_inner grid-960">
+    <a href="/" class="navigation_logo">
+      <span class="navigation_logo-diamond"></span> Eventify
+    </a>
+    <div class="navigation_links">
+      <a href="/"       class="navigation_link active">Home</a>
+      <a href="/events" class="navigation_link">My Events</a>
+      <a href="/about"  class="navigation_link">About</a>
+    </div>
+    <div class="navigation_actions">
+      <span class="navigation_user hidden" id="navUser"></span>
+      <a href="/login"    class="btn btn--outline">Login</a>
+      <a href="/register" class="btn btn--primary">Get Started</a>
+      <a href="/auth/logout" class="btn btn--outline hidden" id="logoutBtn">Logout</a>
+    </div>
+  </div>
+</navigation>
+
+<main>
+  <!-- HERO TOP SECTION-->
+  <section class="top-section">
+    <div class="top-section_inner grid-960">
+      <div class="top-section_text">
+        <div class="top-section_eyebrow">Event Management Platform</div>
+        <h1 class="top-section_title">
+          Create any <em>unforgettable</em><br>event in minutes 
+        </h1>
+        <p class="top-section_desc">
+          Eventify provides event organisers the ability to promote,manage 
+          and track any event within a few clicks, join now to empower your buisness 
+        </p>
+        <div class="top-section_cta">
+          <a href="/register" class="btn btn--primary btn--lg">Sign Up for Free </a>
+          <a href="/login"    class="btn btn--outline btn--lg">Sign In</a>
+        </div>
+      </div>
+      <div class="top-section_card">
+        <div class="top-section_card-top">
+          <span class="top-section_card-diamond">◆</span>
+          <span class="top-section_card-label">EVENTS CREATED BY YOU, MANAGED BY YOU</span>
+        </div>
+        <div class="top-section_tags">
+          <span class="category-label category-label--orange">Music</span>
+          <span class="category-label category-label--blue">Festivals</span>
+          <span class="category-label category-label--red">Arts</span>
+          <span class="category-label category-label--orange">Sports</span>
+          <span class="category-label category-label--blue">Business</span>
+          <span class="category-label category-label--red">Other</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="features">
+    <div class="grid-960">
+      <div class="section-title">CORE FEATURES</div>
+      <div class="section-sub">Designed for event organisers</div>
+      <div class="features_grid">
+        <div class="feature-card">
+          <div class="feature-card_icon">🔍</div>
+          <div class="feature-card_title">Advanced Search & Filter</div>
+          <div class="feature-card_desc"> Intuitive search anf filter functionality, bringing your events to you instanlty through multiple filtering categories</div>
+        </div>
+          <div class="feature-card">
+          <div class="feature-card_icon">🗄️</div>
+          <div class="feature-card_title">MongoDB Database</div>
+          <div class="feature-card_desc">All event data stored in MongoDB with Mongoose schema validation keeping your data readily available to view and edit.</div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card_icon">🖋️</div>
+          <div class="feature-card_title">Full CRUD Control</div>
+          <div class="feature-card_desc">With a few simple clicks, any user can create, read, update and delete events with full validation.</div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-card_icon">🔐</div>
+          <div class="feature-card_title">Secure Login</div>
+          <div class="feature-card_desc">Password hashing with bcrypt keeps your account and your password hidden. Session-based authentication for a seamless experience when entering and leaving the web platform.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script src="/js/main.js"></script>
+<script>
+  // Show logout if logged in, hide login/register
+  document.addEventListener('DOMContentLoaded', async () => {
+    try {
+      const response = await fetch('/api/me');
+      if (response.ok) {
+        document.querySelector('a[href="/login"]').classList.add('hidden');
+        document.querySelector('a[href="/register"]').classList.add('hidden');
+        document.getElementById('logoutBtn').classList.remove('hidden');
+      }
+    } catch {}
+  });
+</script>
+</body>
+</html>
